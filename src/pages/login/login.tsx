@@ -20,9 +20,8 @@ class Login extends Component<IProps> {
   }
   
   onFinish = (values:any) => {
-    console.log(this)
+    console.log(values)
     this.props.dispatch(getToken(values));
-    console.log('Success:', values);
   };
 
   onFinishFailed = (errorInfo:any) => {

@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { Image } from 'antd';
 
 class Index extends Component {
   render(){
     return <>
-      首页
+      <Image
+      width={200}
+      src={require('../../image/index.jpg')}
+    />
     </>
   }
 }

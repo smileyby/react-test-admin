@@ -13,6 +13,8 @@ function toQuery(obj:any) {
   return str;
 }
 
+const baseUrl = 'http://106.12.120.79:8999';
+
 export const http = (url:string, options:IHttpOption) => {
   const { 
     method = 'get', 
@@ -37,15 +39,15 @@ export const http = (url:string, options:IHttpOption) => {
 }
 
 export const $get = (url:string, data?:any) => {
-  return http(url, {method: 'get', data})
+  return http(baseUrl + url, {method: 'get', data})
 }
 
 export const $post = (url:string, data?:any) => {
-  return http(url, {method: 'post', data})
+  return http(baseUrl + url, {method: 'post', data})
 }
 
 export const login = (data:any) => { // 登录
-  return $post('/admin/login', data)
+  return $post('/admin/login?' + toQuery(data))
 } 
 
 export const register = (data:any) => { // 注册

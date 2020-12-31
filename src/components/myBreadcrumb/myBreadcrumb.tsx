@@ -8,10 +8,10 @@ const MyBreadcrumb  = withRouter((props)=>{
   const breadcrumbItems = [
     <Breadcrumb.Item key="home"><Link to="/index">首页</Link></Breadcrumb.Item>
   ];
-  if (currentRoute.breadcrumb !== '首页') {
-    breadcrumbItems.push(<Breadcrumb.Item key={currentRoute.path}>{currentRoute.breadcrumb}</Breadcrumb.Item>,)
+  if (currentRoute && currentRoute.breadcrumb && currentRoute.breadcrumb !== '首页') {
+    breadcrumbItems.push(<Breadcrumb.Item key={currentRoute.path}>{currentRoute.breadcrumb}</Breadcrumb.Item>)
   }
-  if (currentRoute.children) {
+  if (currentRoute && currentRoute.children) {
     let currentChild = currentRoute.children.filter((item:any) => item.path === pathname)[0];
     if (currentChild) {
       breadcrumbItems.push(<Breadcrumb.Item key={currentChild.path}>{currentChild.breadcrumb}</Breadcrumb.Item>)
