@@ -1,7 +1,7 @@
 export interface IHttpOption {
   method?: 'get' | 'post';
   data?: {};
-  headers?: {};
+  headers?: any;
 }
 
 function toQuery(obj:any) {
@@ -21,6 +21,11 @@ export const http = (url:string, options:IHttpOption) => {
     data = {},
     headers = {} 
   } = options || {};
+
+  const token = localStorage.getItem('token');
+  if (token) {
+    headers['token'] = token;
+  }
 
   let params = {
     method,

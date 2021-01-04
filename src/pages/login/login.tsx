@@ -7,6 +7,7 @@ import { Dispatch } from 'redux';
 import './login.css';
 export interface IProps {
   dispatch: Dispatch;
+  history: any
 }
 class Login extends Component<IProps> {
   state = {
@@ -27,7 +28,17 @@ class Login extends Component<IProps> {
   onFinishFailed = (errorInfo:any) => {
     console.log('Failed:', errorInfo);
   };
-   
+  componentDidMount(){
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.props.history.push('/index')
+    }
+  }
+  componentDidUpdate(prevProps:any,prevState:any){
+    if (prevProps.token) {
+      prevProps.history.push('/index')
+    }
+  } 
   render(){
     return <>
       <div className="fixedLogin">

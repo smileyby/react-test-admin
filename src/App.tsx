@@ -67,7 +67,7 @@ class App extends Component {
                 <MyBreadcrumb></MyBreadcrumb>
                 <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
                   <Switch>
-                    <Route path="/" exact render={()=><Redirect to="/index"></Redirect>}></Route>
+                    <Route path="/" exact render={()=><Redirect to="/login"></Redirect>}></Route>
                     <Route path="/index" component={Index}></Route>
                     <Route path="/login" component={Login}></Route>
                     <Route path="/manage/role" component={Role}></Route>

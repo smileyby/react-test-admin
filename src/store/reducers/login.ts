@@ -9,7 +9,7 @@ const initState:ILoginState = {
   token: token ? token : '',
   userInfo: {}
 }
-export const loginReducer = (state:ILoginState, action:any) => {
+export const loginReducer = (state:ILoginState = initState, action:any) => {
   switch (action.type) {
     case SETTOKEN:
       return {

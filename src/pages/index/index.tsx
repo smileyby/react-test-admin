@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import { Image } from 'antd';
-
+import { Image, Button, Space } from 'antd';
 class Index extends Component {
   render(){
     return <>
-      <Image
-      width={200}
-      src={require('../../image/index.jpg')}
-    />
+      <Space size={12}>
+        <Image
+          width={200}
+          src={`http://demo.color-ui.com/01.jpg`}
+          placeholder={
+            <Image
+              preview={false}
+              src="http://demo.color-ui.com/01.jpg"
+              width={200}
+            />
+          }
+        />
+      </Space>
     </>
   }
 }
